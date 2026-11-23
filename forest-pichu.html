@@ -177,4 +177,5 @@ if (parcelN > 0) {
 if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
   navigator.serviceWorker.register('./service-worker.js').catch(() => {});
 }
+$('rest').addEventListener('click',()=>{clearTimeout(wanderTimer);walkGridTo(39,50,()=>{pet.classList.add('sleeping');setTimeout(()=>{pet.classList.remove('sleeping');scheduleWander(3000)},4200)})});
 </script></body></html>
