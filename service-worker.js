@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pichu-field-companion-v1';
+const CACHE_NAME = 'pichu-field-companion-v2';
 const APP_FILES = [
   './index.html',
   './forest-pichu.html',
