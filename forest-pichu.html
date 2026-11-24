@@ -150,7 +150,29 @@ body{background:#e6efdc;color:#21372c}.shell{background:#fbf7ed;border-color:#cf
 #pet[data-stage="raichu"] .tail-orb{display:block}
 #pet.evolving .spark{animation:evolutionSpark .32s ease-in-out 3 alternate;color:#fff4a6;text-shadow:0 0 8px #fff3ad,0 0 24px #ffcf58}
 @keyframes evolutionSpark{to{transform:scale(1.7) rotate(35deg);opacity:.35}}
-@media(max-width:700px){#pet[data-stage="pichu"]{--form-scale:.42}#pet[data-stage="pikachu"]{--form-scale:.46}#pet[data-stage="raichu"]{--form-scale:.49}}</style></head>
+@media(max-width:700px){#pet[data-stage="pichu"]{--form-scale:.42}#pet[data-stage="pikachu"]{--form-scale:.46}#pet[data-stage="raichu"]{--form-scale:.49}}/* Reference-inspired sprite details: warm pixels, visible limbs and belly patches */
+#pet[data-stage="pichu"] .head{background:linear-gradient(135deg,#ffd879 0 23%,#f6b74e 24% 68%,#d77c35 100%);border-color:#30231f}
+#pet[data-stage="pichu"] .body{background:linear-gradient(140deg,#ffc860 0 27%,#eb9a3c 73%,#bf632f);border-color:#30231f}
+#pet[data-stage="pichu"] .ear:after{background:#573b34;width:14px;height:17px}
+#pet[data-stage="pichu"] .cheek{background:#ffd64e;box-shadow:inset -2px -2px #dc842f}
+#pet[data-stage="pichu"] .tail{clip-path:polygon(0 15%,40% 15%,40% 0,70% 0,70% 40%,100% 40%,100% 72%,58% 72%,58% 100%,29% 100%,29% 68%,0 68%);background:#eaa536}
+#pet[data-stage="pikachu"] .head{background:linear-gradient(135deg,#ffe57c 0 25%,#f7cf48 70%,#d99a2e);border-color:#30231f}
+#pet[data-stage="pikachu"] .body{background:linear-gradient(140deg,#f9d65a 0 25%,#e9b53c 73%,#c27c2b);border-color:#30231f}
+#pet[data-stage="pikachu"] .ear:after{background:#49302c;height:21px}
+#pet[data-stage="pikachu"] .tail{background:linear-gradient(135deg,#ffd454,#e8a927)}
+#pet[data-stage="raichu"] .head{background:linear-gradient(135deg,#ffc174 0 24%,#e99443 68%,#bd6634);border-color:#30231f}
+#pet[data-stage="raichu"] .body{background:linear-gradient(140deg,#f2ad5a 0 22%,#de873c 70%,#b75d32);border-color:#30231f}
+#pet[data-stage="raichu"] .tail{background:linear-gradient(135deg,#f0ae4b,#c97832)}
+#pet[data-stage="raichu"] .body:after{display:none}
+#pet .belly{position:absolute;z-index:3;left:50%;bottom:9%;transform:translateX(-50%);width:36px;height:39px;clip-path:polygon(22% 0,78% 0,78% 8%,94% 8%,94% 22%,100% 22%,100% 80%,86% 80%,86% 93%,70% 93%,70% 100%,27% 100%,27% 93%,12% 93%,12% 80%,0 80%,0 23%,12% 23%,12% 8%,22% 8%);background:linear-gradient(135deg,#fff0cb,#edd2a1 76%,#d5ad7d);box-shadow:inset -3px -2px #c8a172}
+#pet[data-stage="pikachu"] .belly{width:38px;height:44px;bottom:7%}
+#pet[data-stage="raichu"] .belly{width:43px;height:59px;bottom:8%;background:linear-gradient(135deg,#fff1d0,#f0d2a0 75%,#d2a878)}
+#pet .arm{position:absolute;z-index:3;top:84px;width:25px;height:22px;border:3px solid #30231f;background:linear-gradient(135deg,#ffd475,#d98937);clip-path:polygon(20% 0,80% 0,80% 15%,100% 15%,100% 75%,78% 75%,78% 100%,18% 100%,18% 80%,0 80%,0 20%,20% 20%)}
+#pet .arm.left{left:14px;transform:rotate(23deg)}#pet .arm.right{right:13px;transform:rotate(-23deg)}
+#pet[data-stage="pikachu"] .arm{background:linear-gradient(135deg,#ffe16a,#dfa82d)}#pet[data-stage="raichu"] .arm{background:linear-gradient(135deg,#f6b465,#c96e36)}
+#pet[data-stage="raichu"] .tail-orb{right:-19px;bottom:10px;width:25px;height:25px;background:linear-gradient(135deg,#ffd075,#e49a38)}
+#pet[data-stage] .eye{width:9px;height:13px;background:#241d1d;box-shadow:1px 1px 0 #fff0cb77}
+#pet[data-stage="raichu"] .eye{width:9px;height:12px}</style></head>
 <body><main class="shell">
 <header><div class="brand"><b>✦</b> FIELD RECORD 01 <span> / THE CLEARING</span></div><div class="day" id="clock"></div></header>
 <section class="scene" aria-label="A forest clearing with your evolving electric pet">
@@ -168,7 +190,7 @@ body{background:#e6efdc;color:#21372c}.shell{background:#fbf7ed;border-color:#cf
  <style>@keyframes hop{50%{translate:0 -9px}}.pet.walk{animation:hop .29s ease-in-out infinite}</style>
  <style>.tr{position:absolute;z-index:2;width:48px;height:48px;background:#3f7a4f;border:3px solid #254b3a;border-radius:4px;box-shadow:0 5px 0 #1e4839,inset 9px 9px 0 #5f9a5f;pointer-events:none}</style><i class="tr" style="left:-1%;top:26%"></i><i class="tr" style="left:-1%;top:46%"></i><i class="tr" style="left:-1%;top:64%"></i><i class="tr" style="left:-1%;top:84%"></i><i class="tr" style="right:-1%;top:6%"></i><i class="tr" style="right:-1%;top:22%"></i><i class="tr" style="right:-1%;top:58%"></i><i class="tr" style="right:-1%;top:76%"></i><i class="tr" style="right:-1%;top:90%"></i><i class="tr" style="left:9%;top:92%"></i><i class="tr" style="left:30%;top:93%"></i><i class="tr" style="left:52%;top:93%"></i><i class="tr" style="left:70%;top:93%"></i><i class="tr" style="left:12%;top:-2%"></i><i class="tr" style="left:44%;top:-2%"></i><i class="tr" style="left:60%;top:-2%"></i>
  <div class="title">FIELD 01 &nbsp;·&nbsp; DUSK GROVE</div><div class="weather" id="weather">☀️ &nbsp;Demo skies</div>
- <div id="parcels"></div><div class="pet" id="pet" data-stage="pichu"><div class="tail"></div><i class="tail-orb"></i><div class="ear left"></div><div class="ear right"></div><div class="body"></div><div class="head"><i class="eye l"></i><i class="eye r"></i><i class="cheek l"></i><i class="cheek r"></i><span class="mouth">ᴗ</span></div><i class="foot l"></i><i class="foot r"></i><i class="spark s1">✦</i><i class="spark s2">✧</i></div>
+ <div id="parcels"></div><div class="pet" id="pet" data-stage="pichu"><div class="tail"></div><i class="tail-orb"></i><i class="arm left"></i><i class="arm right"></i><div class="ear left"></div><div class="ear right"></div><div class="body"><i class="belly"></i></div><div class="head"><i class="eye l"></i><i class="eye r"></i><i class="cheek l"></i><i class="cheek r"></i><span class="mouth">ᴗ</span></div><i class="foot l"></i><i class="foot r"></i><i class="spark s1">✦</i><i class="spark s2">✧</i></div>
  <div class="speech" id="speech">Pika! A parcel for the clearing!</div>
 </section>
 <section class="content">
