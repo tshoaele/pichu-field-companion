@@ -146,7 +146,7 @@ body{background:#e6efdc;color:#21372c}.shell{background:#fbf7ed;border-color:#cf
 #pet[data-stage="raichu"] .ear:after{top:0;left:3px;width:16px;height:38px;background:#57413c}
 #pet[data-stage="raichu"] .cheek{width:18px;height:14px;border:2px solid #a94d40;border-radius:50%;background:#ed5d4d}
 #pet[data-stage="raichu"] .tail{width:58px;height:68px;right:-18px;bottom:16px;clip-path:polygon(0 0,53% 10%,100% 0,85% 27%,100% 45%,60% 56%,78% 100%,22% 80%,34% 52%,0 38%,24% 22%);background:#d78b35}
-#pet .tail-orb{display:none;position:absolute;z-index:2;right:-19px;bottom:16px;width:22px;height:22px;border:3px solid #302b2b;border-radius:50%;background:#f3b547;box-shadow:inset -3px -3px #ce8031}
+#pet .tail-orb{display:none;position:absolute;z-index:4;right:-19px;bottom:16px;width:22px;height:22px;border:3px solid #302b2b;border-radius:50%;background:#f3b547;box-shadow:inset -3px -3px #ce8031}
 #pet[data-stage="raichu"] .tail-orb{display:block}
 #pet.evolving .spark{animation:evolutionSpark .32s ease-in-out 3 alternate;color:#fff4a6;text-shadow:0 0 8px #fff3ad,0 0 24px #ffcf58}
 @keyframes evolutionSpark{to{transform:scale(1.7) rotate(35deg);opacity:.35}}
@@ -158,7 +158,7 @@ body{background:#e6efdc;color:#21372c}.shell{background:#fbf7ed;border-color:#cf
  <div class="tree t1"><div class="trunk"></div><div class="crown"></div></div><div class="tree t2"><div class="trunk"></div><div class="crown"></div></div><div class="tree t3"><div class="trunk"></div><div class="crown"></div></div>
  <div class="ground"></div><div class="grass"></div><div class="log"></div><div class="flowers">✿　✿　✿</div><div class="pond"></div>
  <div class="shrub shrub-a"></div><div class="shrub shrub-b"></div><div class="stone stone-a"></div><div class="stone stone-b"></div><div class="mushroom"><i></i><b></b></div><div class="mushroom tiny"><i></i><b></b></div>
- <i class="firefly firefly-a"></i><i class="firefly firefly-b"></i><i class="firefly firefly-c"></i><span class="world-hint">Tap any tile to guide Pichu · glowing spots hold discoveries</span>
+ <i class="firefly firefly-a"></i><i class="firefly firefly-b"></i><i class="firefly firefly-c"></i><span class="world-hint" id="worldHint">Tap any tile to guide Pichu · glowing spots hold discoveries</span>
  <button class="discovery" data-site="shallows" style="left:74%;bottom:10%" type="button" aria-label="Explore the moonlit shallows"><i>◇</i><span>SHALLOWS</span></button>
  <button class="discovery" data-site="stump" style="left:21%;bottom:23%" type="button" aria-label="Explore the old stump"><i>◇</i><span>OLD STUMP</span></button>
  <button class="discovery" data-site="fern" style="left:66%;bottom:24%" type="button" aria-label="Explore the storm fern"><i>◇</i><span>STORM FERN</span></button>
