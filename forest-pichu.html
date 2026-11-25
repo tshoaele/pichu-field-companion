@@ -152,7 +152,23 @@ body{background:#e6efdc;color:#21372c}.shell{background:#fbf7ed;border-color:#cf
 #pet[data-stage="raichu"] .cheek{width:18px;height:14px;border:0;border-radius:0;clip-path:polygon(20% 0,80% 0,80% 14%,100% 14%,100% 84%,80% 84%,80% 100%,18% 100%,18% 84%,0 84%,0 17%,20% 17%);background:#e95849;box-shadow:inset -3px -3px #b9403a}
 #pet[data-stage="raichu"] .tail{width:58px;height:69px;right:-18px;bottom:16px;clip-path:polygon(0 0,53% 10%,100% 0,85% 27%,100% 45%,60% 56%,78% 100%,22% 80%,34% 52%,0 38%,24% 22%);background:linear-gradient(135deg,#f0ae4b,#c97832)}
 #pet[data-stage="raichu"] .belly{width:43px;height:59px;bottom:8%;background:linear-gradient(135deg,#fff1d0,#f0d2a0 75%,#d2a878)}#pet[data-stage="raichu"] .arm{background:linear-gradient(135deg,#f6b465,#c96e36)}
-#pet .tail-orb{display:none;position:absolute;z-index:4;right:-19px;bottom:10px;width:25px;height:25px;border:3px solid #302b2b;border-radius:0;clip-path:polygon(20% 0,80% 0,80% 12%,100% 12%,100% 85%,85% 85%,85% 100%,15% 100%,15% 85%,0 85%,0 15%,20% 15%);background:linear-gradient(135deg,#ffd075,#e49a38);box-shadow:inset -3px -3px #c87932}
+ /* Rounder silhouettes: keep the warm pixel palette, soften the big shapes. */
+ #pet[data-stage] .head{clip-path:none;border-radius:46% 48% 43% 44% / 43% 42% 47% 46%}
+ #pet[data-stage] .body{clip-path:none;border-radius:43% 44% 40% 42% / 34% 34% 43% 43%}
+ #pet[data-stage="pichu"] .head{border-radius:44% 47% 42% 43% / 43% 44% 46% 46%}
+ #pet[data-stage="pichu"] .body{border-radius:43% 43% 40% 40% / 36% 36% 43% 43%}
+ #pet[data-stage="pikachu"] .body{border-radius:45% 45% 42% 42% / 34% 34% 44% 44%}
+ #pet[data-stage="raichu"] .body{border-radius:46% 46% 43% 43% / 33% 33% 43% 43%}
+ #pet[data-stage] .ear{clip-path:none;border-radius:76% 48% 22% 22% / 42% 46% 18% 18%}
+ #pet[data-stage="pichu"] .ear{border-radius:72% 48% 27% 27% / 38% 42% 20% 20%}
+ #pet[data-stage] .ear:after{border-radius:76% 46% 20% 20% / 42% 45% 18% 18%}
+ #pet[data-stage] .cheek{clip-path:none;border-radius:50%;box-shadow:inset -2px -2px #dc842f55}
+ #pet[data-stage="pikachu"] .cheek,#pet[data-stage="raichu"] .cheek{box-shadow:inset -2px -2px #9d433c55}
+ #pet[data-stage] .belly{clip-path:none;border-radius:50% 50% 46% 46%}
+ #pet[data-stage] .arm{clip-path:none;border-radius:48% 52% 46% 48%}
+ #pet[data-stage] .eye{border-radius:50%}
+ #pet[data-stage] .head:before,#pet[data-stage] .head:after{border-radius:50%}
+ #pet .tail-orb{display:none;position:absolute;z-index:4;right:-19px;bottom:10px;width:25px;height:25px;border:3px solid #302b2b;border-radius:0;clip-path:polygon(20% 0,80% 0,80% 12%,100% 12%,100% 85%,85% 85%,85% 100%,15% 100%,15% 85%,0 85%,0 15%,20% 15%);background:linear-gradient(135deg,#ffd075,#e49a38);box-shadow:inset -3px -3px #c87932}
 #pet[data-stage="raichu"] .tail-orb{display:block}
 #pet[data-stage] .eye{width:9px;height:13px;background:#241d1d;box-shadow:1px 1px 0 #fff0cb77}#pet[data-stage="raichu"] .eye{width:9px;height:12px}
 #pet[data-stage] .spark{text-shadow:1px 1px #9c522f}#pet[data-stage="raichu"] .spark{font-size:28px;color:#ffd75b;text-shadow:0 0 5px #f8b84a,1px 1px #9c522f}
