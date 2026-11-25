@@ -331,4 +331,20 @@ walkGridTo=function(x,bottom,onArrive){
  };
  step();return points.length*145;
 };
+
+const wildSpotStyles=document.createElement('style');
+wildSpotStyles.textContent='.wild-spot{position:absolute;z-index:5;display:grid;place-items:center;width:42px;height:42px;padding:0;border:1px solid #ffe59a;border-radius:50%;background:radial-gradient(circle,#fff9d9 0 9%,#f9d876aa 10% 30%,#e9b95b35 31% 100%);color:#fff3b0;cursor:pointer;box-shadow:0 0 0 5px #f7d97824,0 0 22px 9px #f5cf6988;animation:wildSpotPulse 1.3s ease-in-out infinite alternate}.wild-spot:before{content:"";position:absolute;inset:-9px;border:1px solid #fff0b55c;border-radius:50%;animation:wildSpotRing 1.8s ease-out infinite}.wild-spot span{position:absolute;top:41px;padding:3px 6px;border:1px solid #f1d58c55;border-radius:3px;background:#101820d9;color:#ffe49b;font:800 8px "DM Mono",monospace;letter-spacing:.08em;white-space:nowrap}.wild-spot:focus-visible{outline:2px solid #fff4c3;outline-offset:5px}@keyframes wildSpotPulse{to{scale:.82;filter:brightness(1.25)}}@keyframes wildSpotRing{to{scale:1.65;opacity:0}}@media(prefers-reduced-motion:reduce){.wild-spot,.wild-spot:before{animation:none}}';document.head.append(wildSpotStyles);
+let wildSpotTimer;
+function scheduleWildSpot(delay=8500){clearTimeout(wildSpotTimer);wildSpotTimer=setTimeout(plantWildSpot,delay)}
+function plantWildSpot(){
+ if(asleep()||exploring||document.querySelector('.wild-spot')){scheduleWildSpot(7000);return}
+ const x=16+Math.random()*68,bottom=20+Math.random()*42,spot=document.createElement('button');
+ spot.type='button';spot.className='wild-spot';spot.style.left=x+'%';spot.style.bottom=bottom+'%';spot.setAttribute('aria-label','Guide Pichu to a glowing find');spot.title='Tap to guide Pichu to a discovery';spot.innerHTML='<span>WILD FIND</span>';scene.append(spot);
+ const removeLater=setTimeout(()=>{if(spot.isConnected){spot.remove();message('The little spark faded into the forest.');scheduleWildSpot(9000)}},30000);
+ spot.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(spot.disabled||exploring)return;if(asleep()){message('Pichu is sleeping. Tap Pichu to wake him first.');return}if(needs.energy<8){message('Pichu needs a little rest before exploring.');toast('Rest first, then follow the glow.');return}
+  clearTimeout(removeLater);spot.disabled=true;exploring=true;clearTimeout(wanderTimer);['berry','play','rest','reset'].forEach(id=>$(id).disabled=true);message('A little glow caught Pichu’s eye!');
+  walkGridTo(x,bottom,()=>{spot.remove();needs.energy=clamp(needs.energy-3);saveNeeds();updateUI();showWildFind(x,bottom);exploring=false;['berry','play','rest','reset'].forEach(id=>$(id).disabled=false);scheduleWander(6500);scheduleWildSpot(32000+Math.random()*16000)});
+ },{once:false});
+}
+scheduleWildSpot();
 </script></body></html>
