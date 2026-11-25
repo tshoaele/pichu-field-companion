@@ -174,7 +174,61 @@ body{background:#e6efdc;color:#21372c}.shell{background:#fbf7ed;border-color:#cf
 #pet[data-stage] .spark{text-shadow:1px 1px #9c522f}#pet[data-stage="raichu"] .spark{font-size:28px;color:#ffd75b;text-shadow:0 0 5px #f8b84a,1px 1px #9c522f}
 #pet[data-stage]::before{content:"";position:absolute;z-index:0;left:34%;bottom:-5px;width:48px;height:9px;border-radius:50%;background:#342a2270;filter:blur(1px)}
 #pet.evolving .spark{animation:evolutionSpark .32s ease-in-out 3 alternate;color:#fff4a6;text-shadow:0 0 8px #fff3ad,0 0 24px #ffcf58}@keyframes evolutionSpark{to{transform:scale(1.7) rotate(35deg);opacity:.35}}
-@media(max-width:700px){#pet[data-stage="pichu"]{--form-scale:.38}#pet[data-stage="pikachu"]{--form-scale:.46}#pet[data-stage="raichu"]{--form-scale:.52}}</style></head>
+@media(max-width:700px){#pet[data-stage="pichu"]{--form-scale:.38}#pet[data-stage="pikachu"]{--form-scale:.46}#pet[data-stage="raichu"]{--form-scale:.52}}
+/* Give each evolution its own softer, shaded silhouette, inspired by the field reference. */
+#pet[data-stage="pichu"]{--form-scale:.46}
+#pet[data-stage="pikachu"]{--form-scale:.50}
+#pet[data-stage="raichu"]{--form-scale:.54}
+#pet[data-stage] .head,#pet[data-stage] .body{border-width:3px;box-shadow:inset -8px -9px 0 #8a492b36,inset 4px 4px 0 #fff1bd3d}
+#pet[data-stage] .head{background-image:radial-gradient(ellipse at 28% 22%,#fff0a96b 0 12%,transparent 45%),linear-gradient(145deg,#ffc866 4%,#e9913e 78%,#bd6334)}
+#pet[data-stage] .body{background-image:radial-gradient(ellipse at 30% 18%,#ffdf8870 0 12%,transparent 49%),linear-gradient(145deg,#f7b64d 2%,#df8038 78%,#ae572f)}
+#pet[data-stage] .ear{background:linear-gradient(115deg,#f9bd57 0 48%,#d77a37 100%);box-shadow:inset -4px -5px 0 #8a492b55}
+#pet[data-stage] .ear:after{background:linear-gradient(180deg,#56302e 0 70%,#8b4b32 100%);box-shadow:inset 2px 2px 0 #ffcf6d55}
+#pet[data-stage] .belly{border:2px solid #a9693b55;box-shadow:inset 3px 3px 0 #fff8df99,inset -4px -5px 0 #ba815544}
+#pet[data-stage] .cheek{box-shadow:inset 2px 2px 0 #fff4a777,inset -2px -3px 0 #9a482f55}
+#pet[data-stage] .foot{border-width:3px;background:linear-gradient(145deg,#efb451,#c97736);box-shadow:inset 3px 2px 0 #ffdc7a66}
+#pet[data-stage="pichu"] .head{background-image:radial-gradient(ellipse at 30% 24%,#ffe29c 0 15%,transparent 48%),linear-gradient(145deg,#ffc761,#e9953c 76%,#c66b37)}
+#pet[data-stage="pichu"] .body{border-radius:47% 47% 44% 44% / 40% 40% 42% 42%;background-image:radial-gradient(ellipse at 30% 20%,#ffdd8b 0 14%,transparent 48%),linear-gradient(145deg,#f8b54f,#df8038 78%,#b65c31)}
+#pet[data-stage="pichu"] .ear{top:-29px;height:51px;width:27px;border-radius:72% 52% 30% 30% / 43% 48% 20% 20%;background:linear-gradient(120deg,#f6b34d 0 59%,#6c3b31 60% 100%)}
+#pet[data-stage="pichu"] .ear:after{top:4px;left:6px;width:12px;height:19px;border-radius:70% 45% 30% 30%;background:linear-gradient(#70402f,#bd6734)}
+#pet[data-stage="pichu"] .tail{filter:drop-shadow(1px 2px 0 #6c402f);background:linear-gradient(130deg,#ffd978,#e69a39 70%,#b95f32)}
+#pet[data-stage="pikachu"] .head{background-image:radial-gradient(ellipse at 28% 20%,#fff0a7 0 14%,transparent 47%),linear-gradient(145deg,#ffd46a,#eca640 76%,#bd7131)}
+#pet[data-stage="pikachu"] .body{background-image:radial-gradient(ellipse at 26% 18%,#ffe18e 0 12%,transparent 46%),linear-gradient(145deg,#f8ca59,#e5a33a 75%,#b76b31)}
+#pet[data-stage="pikachu"] .tail{filter:drop-shadow(1px 2px 0 #6c402f);background:linear-gradient(135deg,#ffe083,#e7a82f 76%,#bb6b2d)}
+#pet[data-stage="raichu"] .head{background-image:radial-gradient(ellipse at 28% 19%,#ffd08b 0 13%,transparent 47%),linear-gradient(145deg,#e99548,#ca6937 78%,#8e452d)}
+#pet[data-stage="raichu"] .body{background-image:radial-gradient(ellipse at 26% 18%,#ffc477 0 12%,transparent 47%),linear-gradient(145deg,#e58b43,#c56235 77%,#8a402a)}
+#pet[data-stage="raichu"] .tail-orb{border-radius:50%;clip-path:none;background:radial-gradient(circle at 32% 28%,#ffe6a0 0 12%,#f3b949 38%,#cf7534 100%);box-shadow:inset -4px -4px 0 #954c2d66}
+@media(max-width:700px){#pet[data-stage="pichu"]{--form-scale:.43}#pet[data-stage="pikachu"]{--form-scale:.47}#pet[data-stage="raichu"]{--form-scale:.51}}
+/* A little more anime expression and handheld-game charm. */
+#pet[data-stage] .eye{position:absolute;width:10px;height:14px;border-radius:48% 48% 45% 45%;background:linear-gradient(90deg,#201c20 0 68%,#4c3025 100%);box-shadow:1px 1px 0 #fff0c988}
+#pet[data-stage] .eye:after{content:"";position:absolute;top:2px;left:2px;width:3px;height:4px;border-radius:50%;background:#fff7d9}
+#pet[data-stage] .cheek{width:17px;height:13px;opacity:1;filter:drop-shadow(0 1px 0 #83432d66)}
+#pet[data-stage] .mouth{top:55px;left:46px;font:900 14px/1 Georgia,serif;color:#492b25;text-shadow:0 1px #ffdda0}
+#pet[data-stage="pichu"] .eye{width:9px;height:12px;top:35px}
+#pet[data-stage="pichu"] .cheek{width:14px;height:11px;top:49px;background:radial-gradient(circle at 35% 30%,#ffe17d,#eca13e 72%,#c96a35)}
+#pet[data-stage="pichu"] .mouth{top:57px;left:48px;font-size:12px}
+#pet[data-stage="pikachu"] .cheek{width:18px;height:18px;top:47px;background:radial-gradient(circle at 34% 30%,#ff9a65,#e85a46 72%,#b8433b)}
+#pet[data-stage="pikachu"] .mouth{top:55px}
+#pet[data-stage="raichu"] .cheek{width:20px;height:16px;top:48px;background:radial-gradient(circle at 34% 30%,#ff9a68,#dd5844 72%,#a63e37)}
+#pet[data-stage="raichu"] .mouth{top:56px;left:48px}
+#pet[data-stage="pichu"] .spark{color:#ffef9c;text-shadow:0 0 5px #ffda5c,1px 1px #8d4c35}
+#pet[data-stage="pikachu"] .spark{color:#fff084;text-shadow:0 0 8px #ffca48,1px 1px #8d4c35}
+#pet[data-stage="raichu"] .spark{color:#ffdc66;text-shadow:0 0 10px #ff9c3e,1px 1px #8d4c35}
+/* Baby Pichu: buttery yellow, soft cheeks, a rounder face and tiny paws. */
+#pet[data-stage="pichu"] .head{left:18px;width:108px;height:90px;border-radius:47% 48% 45% 45% / 46% 46% 49% 48%;background-image:radial-gradient(ellipse at 29% 22%,#fffbd1 0 13%,transparent 43%),linear-gradient(145deg,#fff5a7 4%,#ffe16a 67%,#d9a738)}
+#pet[data-stage="pichu"] .body{left:32px;width:78px;height:70px;border-radius:48% 48% 44% 44% / 42% 42% 45% 45%;background-image:radial-gradient(ellipse at 28% 16%,#fff3a0 0 14%,transparent 43%),linear-gradient(145deg,#ffe879 4%,#f4ce4e 72%,#c89432)}
+#pet[data-stage="pichu"] .belly{width:31px;height:33px;border:2px solid #c69a4a66;border-radius:50%;background:radial-gradient(ellipse at 35% 25%,#fffef0,#fff1c9 72%,#eacb91);box-shadow:inset 2px 2px 0 #fff}
+#pet[data-stage="pichu"] .arm{width:19px;height:16px;border-width:2px;border-radius:55% 50% 52% 48%;background:linear-gradient(145deg,#fff09a,#e5b63f)}
+#pet[data-stage="pichu"] .foot{width:27px;height:15px;border-radius:55% 55% 48% 48%;background:linear-gradient(145deg,#ffe079,#e6aa40)}
+#pet[data-stage="pichu"] .eye{width:11px;height:14px;border-radius:48% 48% 50% 50%;background:linear-gradient(90deg,#211e25,#35232a);box-shadow:1px 1px 0 #fff3bb}
+#pet[data-stage="pichu"] .eye:after{top:2px;left:2px;width:4px;height:5px;background:#fffdf0;box-shadow:3px 5px 0 -1px #f3d991}
+#pet[data-stage="pichu"] .cheek{width:15px;height:11px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 32%,#ffb08f,#f17b6b 72%,#db665c);box-shadow:inset 1px 1px 0 #ffd4acaa}
+#pet[data-stage="pichu"] .mouth{top:57px;left:48px;font:900 13px/1 Georgia,serif;color:#58312d}
+#pet[data-stage="pichu"] .ear{background:linear-gradient(120deg,#fff09b 0 60%,#684032 61% 100%);box-shadow:inset -3px -4px 0 #b07b3c55}
+#pet[data-stage="pichu"] .tail{background:linear-gradient(135deg,#fff09a,#f4cb49 73%,#c98f2f);filter:drop-shadow(1px 2px 0 #745037)}
+#pet.sleeping[data-stage] .eye{top:36px;height:3px;border-radius:50%;transform:scaleY(.65)}
+#pet.sleeping[data-stage] .eye:after{opacity:0}
+</style></head>
 <body><main class="shell">
 <header><div class="brand"><b>✦</b> FIELD RECORD 01 <span> / THE CLEARING</span></div><div class="day" id="clock"></div></header>
 <section class="scene" aria-label="A forest clearing with your evolving electric pet">
