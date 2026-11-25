@@ -123,56 +123,42 @@ body{background:#e6efdc;color:#21372c}.shell{background:#fbf7ed;border-color:#cf
 .scene{border:4px solid #6b4f33;box-shadow:inset 0 0 0 3px #c9a96b,0 4px 0 #4a3626}.panel{border:3px solid #8a6a43;border-radius:6px;background:#fbf3dc;box-shadow:inset 0 0 0 2px #e8d4a2,0 4px 0 #6b4f33}.panel h2{border-bottom:2px dashed #d3bd88;padding-bottom:6px}.field-entry,.need,.stat,.evolution{border:2px solid #dcc890;border-radius:4px}.btn{border-width:2px;border-radius:4px}.shell{border:3px solid #6b4f33;border-radius:10px}header{border-bottom:3px solid #6b4f33}
 .shell .pet .head,.shell .pet .body,.shell .pet .ear,.shell .pet .tail,.shell .pet .foot{background:#ffd84a;border-color:#2a2226;box-shadow:inset -6px -6px 0 #e3a92f;filter:none}.shell .pet .tail{background:#e8b230;box-shadow:none}.shell .pet .foot{background:#e3a92f;box-shadow:none}.shell .pet .cheek{background:#e8643c;opacity:1;border-radius:0;transform:none;width:12px;height:8px}.shell .pet .eye{background:#1b1a1f;border-radius:0;transform:none;box-shadow:none;width:8px;height:12px}.shell .pet .ear:after{background:#1b1a1f}.shell .pet .head:before,.shell .pet .head:after{display:none}.shell .pet .spark{text-shadow:none}
 .shell .scene.scene.scene.scene.scene{background:#4f8f3f url(./forest-bg.webp) center/cover no-repeat}.scene:before,.scene:not(.rainy):after{display:none}.tree,.log,.pond,.flowers,.shrub,.stone,.mushroom,.firefly,.tr,.shelter{display:none}
-/* Small, scene-matched pixel forms */
-#pet[data-stage="pichu"]{--form-scale:.44}#pet[data-stage="pikachu"]{--form-scale:.49}#pet[data-stage="raichu"]{--form-scale:.52}
-#pet[data-stage]{transform:translateX(-50%) scale(var(--form-scale));transform-origin:bottom center;image-rendering:pixelated;filter:drop-shadow(2px 0 #292a25) drop-shadow(-2px 0 #292a25) drop-shadow(0 4px 0 #24362999)}
+/* Evolution sprites follow the warm, outlined 16-bit reference */
+#pet[data-stage="pichu"]{--form-scale:.40}#pet[data-stage="pikachu"]{--form-scale:.49}#pet[data-stage="raichu"]{--form-scale:.56}
+#pet[data-stage]{transform:translateX(-50%) scale(var(--form-scale));transform-origin:bottom center;image-rendering:pixelated;filter:drop-shadow(2px 0 #2a211e) drop-shadow(-2px 0 #2a211e) drop-shadow(0 4px 0 #26372c99)}
 #pet[data-stage].flip{transform:translateX(-50%) scaleX(-1) scale(var(--form-scale))}
-#pet[data-stage] .head,#pet[data-stage] .body,#pet[data-stage] .ear,#pet[data-stage] .foot{border-width:3px;box-shadow:inset -5px -5px 0 #312a2828}
-#pet[data-stage] .head:before,#pet[data-stage] .head:after{display:block;content:"";position:absolute;z-index:1;width:12px;height:3px;background:#fff4c277;box-shadow:0 2px 0 #c98b3b66;transform:none;opacity:1}
+#pet[data-stage] .head,#pet[data-stage] .body,#pet[data-stage] .ear,#pet[data-stage] .foot{border:3px solid #30231f;box-shadow:inset -5px -5px 0 #31262029}
+#pet[data-stage] .head:before,#pet[data-stage] .head:after{display:block;content:"";position:absolute;z-index:1;width:12px;height:3px;background:#fff4c277;box-shadow:0 2px 0 #a85d3266;transform:none;opacity:1}
 #pet[data-stage] .head:before{top:16px;left:11px}#pet[data-stage] .head:after{top:26px;left:16px;width:7px}
-#pet[data-stage="pichu"] .head{top:9px;left:20px;width:104px;height:86px;border-radius:0;clip-path:polygon(18% 0,82% 0,82% 5%,94% 5%,94% 18%,100% 18%,100% 72%,94% 72%,94% 87%,78% 87%,78% 94%,25% 94%,25% 100%,8% 89%,8% 79%,0 79%,0 24%,8% 24%,8% 10%,18% 10%);background:linear-gradient(135deg,#ffedaa 0 28%,#f4d36d 29% 78%,#dca744 100%)}
-#pet[data-stage="pichu"] .body{left:35px;width:72px;height:76px;border-radius:0;clip-path:polygon(18% 0,82% 0,82% 7%,94% 7%,94% 22%,100% 22%,100% 78%,90% 78%,90% 92%,75% 92%,75% 100%,20% 100%,20% 94%,7% 94%,7% 82%,0 82%,0 19%,10% 19%,10% 7%,18% 7%);background:linear-gradient(135deg,#ffeb9e,#f2cb5d 74%,#d8a240)}
-#pet[data-stage="pichu"] .ear{top:-36px;width:24px;height:62px;border-radius:0;clip-path:polygon(0 100%,7% 17%,42% 0,100% 13%,81% 76%,100% 100%)}#pet[data-stage="pichu"] .ear:after{top:0;left:4px;width:14px;height:22px;background:#30252b}
-#pet[data-stage="pichu"] .cheek{width:14px;height:10px;border-radius:0;clip-path:polygon(20% 0,80% 0,80% 15%,100% 15%,100% 85%,80% 85%,80% 100%,15% 100%,15% 85%,0 85%,0 20%,20% 20%);background:#ef765e}
-#pet[data-stage="pichu"] .tail{width:29px;height:34px;right:-2px;bottom:18px;background:#f4c844}
-#pet[data-stage="pikachu"] .head{top:5px;left:21px;width:102px;height:84px;border-radius:0;clip-path:polygon(17% 0,83% 0,83% 6%,94% 6%,94% 18%,100% 18%,100% 76%,93% 76%,93% 90%,78% 90%,78% 97%,22% 97%,22% 90%,7% 90%,7% 76%,0 76%,0 20%,7% 20%,7% 7%,17% 7%);background:linear-gradient(135deg,#fff16f,#f7d230 67%,#dba724)}
-#pet[data-stage="pikachu"] .body{left:29px;width:84px;height:96px;border-radius:0;clip-path:polygon(17% 0,83% 0,83% 5%,94% 5%,94% 18%,100% 18%,100% 79%,92% 79%,92% 92%,78% 92%,78% 100%,22% 100%,22% 94%,8% 94%,8% 82%,0 82%,0 19%,8% 19%,8% 6%,17% 6%);background:linear-gradient(135deg,#ffea59,#f5ca26 70%,#d8a421)}
-#pet[data-stage="pikachu"] .ear{top:-50px;width:25px;height:80px;border-radius:0;clip-path:polygon(0 100%,7% 17%,42% 0,100% 12%,77% 88%,100% 100%)}#pet[data-stage="pikachu"] .ear:after{top:0;left:4px;width:15px;height:27px;background:#29242b}
-#pet[data-stage="pikachu"] .cheek{width:16px;height:16px;border:0;border-radius:0;clip-path:polygon(22% 0,78% 0,78% 15%,100% 15%,100% 82%,80% 82%,80% 100%,17% 100%,17% 82%,0 82%,0 20%,22% 20%);background:#e85243;box-shadow:inset -3px -3px #bd443d}
-#pet[data-stage="pikachu"] .tail{width:46px;height:59px;right:-10px;bottom:17px;clip-path:polygon(0 0,52% 13%,100% 0,84% 35%,100% 51%,60% 65%,75% 100%,23% 83%,32% 55%,0 37%,25% 24%);background:#eeba28}
-#pet[data-stage="raichu"] .head{top:8px;left:18px;width:108px;height:90px;border-radius:0;clip-path:polygon(17% 0,83% 0,83% 6%,94% 6%,94% 18%,100% 18%,100% 75%,93% 75%,93% 90%,78% 90%,78% 98%,22% 98%,22% 90%,7% 90%,7% 76%,0 76%,0 19%,7% 19%,7% 6%,17% 6%);background:linear-gradient(135deg,#ffc276,#e99a43 67%,#c87535)}
-#pet[data-stage="raichu"] .body{left:26px;width:91px;height:104px;border-radius:0;clip-path:polygon(17% 0,83% 0,83% 6%,94% 6%,94% 20%,100% 20%,100% 78%,92% 78%,92% 92%,78% 92%,78% 100%,22% 100%,22% 94%,8% 94%,8% 81%,0 81%,0 20%,8% 20%,8% 6%,17% 6%);background:linear-gradient(135deg,#f5b161,#e68e3b 68%,#bd672f)}
-#pet[data-stage="raichu"] .body:after{content:"";position:absolute;left:22px;top:22px;width:39px;height:58px;border-radius:0;clip-path:polygon(20% 0,80% 0,80% 8%,100% 8%,100% 90%,80% 90%,80% 100%,20% 100%,20% 92%,0 92%,0 10%,20% 10%);background:linear-gradient(120deg,#fff0ca,#f2d4a1);box-shadow:inset -4px -3px #d6ad7b}
-#pet[data-stage="raichu"] .ear{top:-58px;width:26px;height:90px;border-radius:0;clip-path:polygon(0 100%,8% 13%,48% 0,100% 14%,78% 83%,100% 100%)}#pet[data-stage="raichu"] .ear:after{top:0;left:3px;width:16px;height:38px;background:#654139}
-#pet[data-stage="raichu"] .cheek{width:18px;height:14px;border:0;border-radius:0;clip-path:polygon(20% 0,80% 0,80% 14%,100% 14%,100% 84%,80% 84%,80% 100%,18% 100%,18% 84%,0 84%,0 17%,20% 17%);background:#e95849;box-shadow:inset -3px -3px #b9403a}
-#pet[data-stage="raichu"] .tail{width:58px;height:69px;right:-18px;bottom:16px;clip-path:polygon(0 0,53% 10%,100% 0,85% 27%,100% 45%,60% 56%,78% 100%,22% 80%,34% 52%,0 38%,24% 22%);background:#d88635}
-#pet .tail-orb{display:none;position:absolute;z-index:4;right:-19px;bottom:16px;width:22px;height:22px;border:3px solid #302b2b;border-radius:0;clip-path:polygon(20% 0,80% 0,80% 12%,100% 12%,100% 85%,85% 85%,85% 100%,15% 100%,15% 85%,0 85%,0 15%,20% 15%);background:#ffc15a;box-shadow:inset -3px -3px #c87932}
-#pet[data-stage="raichu"] .tail-orb{display:block}
-#pet.evolving .spark{animation:evolutionSpark .32s ease-in-out 3 alternate;color:#fff4a6;text-shadow:0 0 8px #fff3ad,0 0 24px #ffcf58}
-@keyframes evolutionSpark{to{transform:scale(1.7) rotate(35deg);opacity:.35}}
-@media(max-width:700px){#pet[data-stage="pichu"]{--form-scale:.42}#pet[data-stage="pikachu"]{--form-scale:.46}#pet[data-stage="raichu"]{--form-scale:.49}}/* Reference-inspired sprite details: warm pixels, visible limbs and belly patches */
-#pet[data-stage="pichu"] .head{background:linear-gradient(135deg,#ffd879 0 23%,#f6b74e 24% 68%,#d77c35 100%);border-color:#30231f}
-#pet[data-stage="pichu"] .body{background:linear-gradient(140deg,#ffc860 0 27%,#eb9a3c 73%,#bf632f);border-color:#30231f}
-#pet[data-stage="pichu"] .ear:after{background:#573b34;width:14px;height:17px}
-#pet[data-stage="pichu"] .cheek{background:#ffd64e;box-shadow:inset -2px -2px #dc842f}
-#pet[data-stage="pichu"] .tail{clip-path:polygon(0 15%,40% 15%,40% 0,70% 0,70% 40%,100% 40%,100% 72%,58% 72%,58% 100%,29% 100%,29% 68%,0 68%);background:#eaa536}
-#pet[data-stage="pikachu"] .head{background:linear-gradient(135deg,#ffe57c 0 25%,#f7cf48 70%,#d99a2e);border-color:#30231f}
-#pet[data-stage="pikachu"] .body{background:linear-gradient(140deg,#f9d65a 0 25%,#e9b53c 73%,#c27c2b);border-color:#30231f}
-#pet[data-stage="pikachu"] .ear:after{background:#49302c;height:21px}
-#pet[data-stage="pikachu"] .tail{background:linear-gradient(135deg,#ffd454,#e8a927)}
-#pet[data-stage="raichu"] .head{background:linear-gradient(135deg,#ffc174 0 24%,#e99443 68%,#bd6634);border-color:#30231f}
-#pet[data-stage="raichu"] .body{background:linear-gradient(140deg,#f2ad5a 0 22%,#de873c 70%,#b75d32);border-color:#30231f}
-#pet[data-stage="raichu"] .tail{background:linear-gradient(135deg,#f0ae4b,#c97832)}
-#pet[data-stage="raichu"] .body:after{display:none}
-#pet .belly{position:absolute;z-index:3;left:50%;bottom:9%;transform:translateX(-50%);width:36px;height:39px;clip-path:polygon(22% 0,78% 0,78% 8%,94% 8%,94% 22%,100% 22%,100% 80%,86% 80%,86% 93%,70% 93%,70% 100%,27% 100%,27% 93%,12% 93%,12% 80%,0 80%,0 23%,12% 23%,12% 8%,22% 8%);background:linear-gradient(135deg,#fff0cb,#edd2a1 76%,#d5ad7d);box-shadow:inset -3px -2px #c8a172}
-#pet[data-stage="pikachu"] .belly{width:38px;height:44px;bottom:7%}
-#pet[data-stage="raichu"] .belly{width:43px;height:59px;bottom:8%;background:linear-gradient(135deg,#fff1d0,#f0d2a0 75%,#d2a878)}
+#pet .body:before{content:"";position:absolute;top:23px;right:7px;width:5px;height:17px;background:#ad5b30;box-shadow:-4px 5px 0 #f6c262}
+#pet .belly{position:absolute;z-index:3;left:50%;bottom:9%;transform:translateX(-50%);width:30px;height:34px;clip-path:polygon(22% 0,78% 0,78% 8%,94% 8%,94% 22%,100% 22%,100% 80%,86% 80%,86% 93%,70% 93%,70% 100%,27% 100%,27% 93%,12% 93%,12% 80%,0 80%,0 23%,12% 23%,12% 8%,22% 8%);background:linear-gradient(135deg,#fff0cb,#edd2a1 76%,#d5ad7d);box-shadow:inset -3px -2px #c8a172}
 #pet .arm{position:absolute;z-index:3;top:84px;width:25px;height:22px;border:3px solid #30231f;background:linear-gradient(135deg,#ffd475,#d98937);clip-path:polygon(20% 0,80% 0,80% 15%,100% 15%,100% 75%,78% 75%,78% 100%,18% 100%,18% 80%,0 80%,0 20%,20% 20%)}
 #pet .arm.left{left:14px;transform:rotate(23deg)}#pet .arm.right{right:13px;transform:rotate(-23deg)}
-#pet[data-stage="pikachu"] .arm{background:linear-gradient(135deg,#ffe16a,#dfa82d)}#pet[data-stage="raichu"] .arm{background:linear-gradient(135deg,#f6b465,#c96e36)}
-#pet[data-stage="raichu"] .tail-orb{right:-19px;bottom:10px;width:25px;height:25px;background:linear-gradient(135deg,#ffd075,#e49a38)}
-#pet[data-stage] .eye{width:9px;height:13px;background:#241d1d;box-shadow:1px 1px 0 #fff0cb77}
-#pet[data-stage="raichu"] .eye{width:9px;height:12px}</style></head>
+#pet[data-stage="pichu"] .head{top:9px;left:20px;width:104px;height:86px;border-radius:0;clip-path:polygon(18% 0,82% 0,82% 5%,94% 5%,94% 18%,100% 18%,100% 72%,94% 72%,94% 87%,78% 87%,78% 94%,25% 94%,25% 100%,8% 89%,8% 79%,0 79%,0 24%,8% 24%,8% 10%,18% 10%);background:linear-gradient(135deg,#ffd879 0 23%,#f6b74e 60%,#d77c35)}
+#pet[data-stage="pichu"] .body{left:35px;width:72px;height:68px;border-radius:0;clip-path:polygon(18% 0,82% 0,82% 7%,94% 7%,94% 22%,100% 22%,100% 78%,90% 78%,90% 92%,75% 92%,75% 100%,20% 100%,20% 94%,7% 94%,7% 82%,0 82%,0 19%,10% 19%,10% 7%,18% 7%);background:linear-gradient(140deg,#ffc860 0 27%,#eb9a3c 73%,#bf632f)}
+#pet[data-stage="pichu"] .ear{top:-36px;width:24px;height:62px;border-radius:0;clip-path:polygon(0 100%,7% 17%,42% 0,100% 13%,81% 76%,100% 100%)}#pet[data-stage="pichu"] .ear:after{top:0;left:4px;width:14px;height:17px;background:#573b34}
+#pet[data-stage="pichu"] .cheek{width:14px;height:10px;border:0;border-radius:0;clip-path:polygon(20% 0,80% 0,80% 15%,100% 15%,100% 85%,80% 85%,80% 100%,15% 100%,15% 85%,0 85%,0 20%,20% 20%);background:#ffd64e;box-shadow:inset -2px -2px #dc842f}
+#pet[data-stage="pichu"] .tail{width:29px;height:34px;right:-2px;bottom:18px;clip-path:polygon(0 15%,40% 15%,40% 0,70% 0,70% 40%,100% 40%,100% 72%,58% 72%,58% 100%,29% 100%,29% 68%,0 68%);background:#eaa536}
+#pet[data-stage="pichu"] .belly{width:27px;height:30px;bottom:8%}#pet[data-stage="pichu"] .arm{top:87px;width:20px;height:18px;background:linear-gradient(135deg,#ffc860,#d98937)}
+#pet[data-stage="pikachu"] .head{top:5px;left:21px;width:102px;height:84px;border-radius:0;clip-path:polygon(17% 0,83% 0,83% 6%,94% 6%,94% 18%,100% 18%,100% 76%,93% 76%,93% 90%,78% 90%,78% 97%,22% 97%,22% 90%,7% 90%,7% 76%,0 76%,0 20%,7% 20%,7% 7%,17% 7%);background:linear-gradient(135deg,#ffe57c 0 25%,#f4c94b 70%,#d99a2e)}
+#pet[data-stage="pikachu"] .body{left:29px;width:84px;height:92px;border-radius:0;clip-path:polygon(17% 0,83% 0,83% 5%,94% 5%,94% 18%,100% 18%,100% 79%,92% 79%,92% 92%,78% 92%,78% 100%,22% 100%,22% 94%,8% 94%,8% 82%,0 82%,0 19%,8% 19%,8% 6%,17% 6%);background:linear-gradient(140deg,#f9d65a 0 25%,#e9b53c 73%,#c27c2b)}
+#pet[data-stage="pikachu"] .ear{top:-50px;width:25px;height:80px;border-radius:0;clip-path:polygon(0 100%,7% 17%,42% 0,100% 12%,77% 88%,100% 100%)}#pet[data-stage="pikachu"] .ear:after{top:0;left:4px;width:15px;height:21px;background:#49302c}
+#pet[data-stage="pikachu"] .cheek{width:16px;height:16px;border:0;border-radius:0;clip-path:polygon(22% 0,78% 0,78% 15%,100% 15%,100% 82%,80% 82%,80% 100%,17% 100%,17% 82%,0 82%,0 20%,22% 20%);background:#e85243;box-shadow:inset -3px -3px #bd443d}
+#pet[data-stage="pikachu"] .tail{width:46px;height:59px;right:-10px;bottom:17px;clip-path:polygon(0 0,52% 13%,100% 0,84% 35%,100% 51%,60% 65%,75% 100%,23% 83%,32% 55%,0 37%,25% 24%);background:linear-gradient(135deg,#ffd454,#e8a927)}
+#pet[data-stage="pikachu"] .belly{width:38px;height:44px;bottom:7%}#pet[data-stage="pikachu"] .arm{background:linear-gradient(135deg,#ffe16a,#dfa82d)}#pet[data-stage="pikachu"] .spark{font-size:25px;color:#ffe066}
+#pet[data-stage="raichu"] .head{top:8px;left:18px;width:108px;height:90px;border-radius:0;clip-path:polygon(17% 0,83% 0,83% 6%,94% 6%,94% 18%,100% 18%,100% 75%,93% 75%,93% 90%,78% 90%,78% 98%,22% 98%,22% 90%,7% 90%,7% 76%,0 76%,0 19%,7% 19%,7% 6%,17% 6%);background:linear-gradient(135deg,#ffc174 0 24%,#e99443 68%,#bd6634)}
+#pet[data-stage="raichu"] .body{left:26px;width:91px;height:104px;border-radius:0;clip-path:polygon(17% 0,83% 0,83% 6%,94% 6%,94% 20%,100% 20%,100% 78%,92% 78%,92% 92%,78% 92%,78% 100%,22% 100%,22% 94%,8% 94%,8% 81%,0 81%,0 20%,8% 20%,8% 6%,17% 6%);background:linear-gradient(140deg,#f2ad5a 0 22%,#de873c 70%,#b75d32)}
+#pet[data-stage="raichu"] .ear{top:-58px;width:26px;height:90px;border-radius:0;clip-path:polygon(0 100%,8% 13%,48% 0,100% 14%,78% 83%,100% 100%)}#pet[data-stage="raichu"] .ear:after{top:0;left:3px;width:16px;height:38px;background:#654139}
+#pet[data-stage="raichu"] .cheek{width:18px;height:14px;border:0;border-radius:0;clip-path:polygon(20% 0,80% 0,80% 14%,100% 14%,100% 84%,80% 84%,80% 100%,18% 100%,18% 84%,0 84%,0 17%,20% 17%);background:#e95849;box-shadow:inset -3px -3px #b9403a}
+#pet[data-stage="raichu"] .tail{width:58px;height:69px;right:-18px;bottom:16px;clip-path:polygon(0 0,53% 10%,100% 0,85% 27%,100% 45%,60% 56%,78% 100%,22% 80%,34% 52%,0 38%,24% 22%);background:linear-gradient(135deg,#f0ae4b,#c97832)}
+#pet[data-stage="raichu"] .belly{width:43px;height:59px;bottom:8%;background:linear-gradient(135deg,#fff1d0,#f0d2a0 75%,#d2a878)}#pet[data-stage="raichu"] .arm{background:linear-gradient(135deg,#f6b465,#c96e36)}
+#pet .tail-orb{display:none;position:absolute;z-index:4;right:-19px;bottom:10px;width:25px;height:25px;border:3px solid #302b2b;border-radius:0;clip-path:polygon(20% 0,80% 0,80% 12%,100% 12%,100% 85%,85% 85%,85% 100%,15% 100%,15% 85%,0 85%,0 15%,20% 15%);background:linear-gradient(135deg,#ffd075,#e49a38);box-shadow:inset -3px -3px #c87932}
+#pet[data-stage="raichu"] .tail-orb{display:block}
+#pet[data-stage] .eye{width:9px;height:13px;background:#241d1d;box-shadow:1px 1px 0 #fff0cb77}#pet[data-stage="raichu"] .eye{width:9px;height:12px}
+#pet[data-stage] .spark{text-shadow:1px 1px #9c522f}#pet[data-stage="raichu"] .spark{font-size:28px;color:#ffd75b;text-shadow:0 0 5px #f8b84a,1px 1px #9c522f}
+#pet[data-stage]::before{content:"";position:absolute;z-index:0;left:34%;bottom:-5px;width:48px;height:9px;border-radius:50%;background:#342a2270;filter:blur(1px)}
+#pet.evolving .spark{animation:evolutionSpark .32s ease-in-out 3 alternate;color:#fff4a6;text-shadow:0 0 8px #fff3ad,0 0 24px #ffcf58}@keyframes evolutionSpark{to{transform:scale(1.7) rotate(35deg);opacity:.35}}
+@media(max-width:700px){#pet[data-stage="pichu"]{--form-scale:.38}#pet[data-stage="pikachu"]{--form-scale:.46}#pet[data-stage="raichu"]{--form-scale:.52}}</style></head>
 <body><main class="shell">
 <header><div class="brand"><b>✦</b> FIELD RECORD 01 <span> / THE CLEARING</span></div><div class="day" id="clock"></div></header>
 <section class="scene" aria-label="A forest clearing with your evolving electric pet">
