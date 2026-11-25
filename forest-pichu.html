@@ -227,7 +227,7 @@ body{background:#e6efdc;color:#21372c}.shell{background:#fbf7ed;border-color:#cf
 #pet[data-stage="pichu"] .ear{background:linear-gradient(120deg,#fff09b 0 60%,#684032 61% 100%);box-shadow:inset -3px -4px 0 #b07b3c55}
 #pet[data-stage="pichu"] .tail{background:linear-gradient(135deg,#fff09a,#f4cb49 73%,#c98f2f);filter:drop-shadow(1px 2px 0 #745037)}
 #pet.sleeping[data-stage] .eye{top:36px;height:3px;border-radius:50%;transform:scaleY(.65)}
-<style>.mobile-nav{display:none}@media(max-width:700px){body{display:block;min-height:100vh;padding:10px 10px calc(126px + env(safe-area-inset-bottom))}.shell{width:100%;border-radius:9px}header{gap:8px;padding:12px;align-items:flex-start}.brand{max-width:60%;font-size:9px;line-height:1.45;letter-spacing:.12em}.day{max-width:40%;text-align:right;font-size:9px;line-height:1.45}.scene{height:min(112vw,560px);min-height:380px}.title{top:10px;left:9px;max-width:58%;padding:6px 7px;font-size:8px;letter-spacing:.12em}.weather{top:10px;right:9px;padding:6px 8px;font-size:9px}.world-hint{max-width:calc(100% - 16px);font-size:8px;white-space:normal;text-align:center;line-height:1.35}.content{grid-template-columns:minmax(0,1fr);gap:10px;padding:10px}.panel{min-width:0;padding:12px}.needs{gap:5px}.need{padding:7px 5px}.need label{font-size:8px}.need label b{font-size:9px}.stats{gap:5px}.stat{min-width:0;padding:7px 5px;font-size:9px;text-align:center}.stat strong{font-size:15px;overflow-wrap:anywhere}.rule{font-size:10px}.field-entry{min-height:32px}.actions{position:fixed;z-index:30;left:50%;bottom:calc(47px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(calc(100% - 20px),480px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:7px;background:#fbf3dcf2;border:2px solid #8a6a43;border-radius:8px;box-shadow:0 4px 14px #20372c55;backdrop-filter:blur(8px)}.actions .btn{min-height:42px;padding:8px 4px;font-size:10px;white-space:nowrap}.mobile-nav{position:fixed;z-index:29;left:50%;bottom:0;transform:translateX(-50%);width:min(100%,500px);display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;padding:5px 6px calc(5px + env(safe-area-inset-bottom));background:#fff9edfa;border-top:1px solid #d4c293;box-shadow:0 -4px 16px #20372c22}.mobile-nav a{display:grid;place-items:center;min-height:35px;border-radius:5px;color:#31594b;text-decoration:none;font-size:8px;font-weight:900;letter-spacing:.02em;white-space:nowrap}.mobile-nav a:active,.mobile-nav a:focus-visible{background:#e8dfc2;outline:2px solid #8a6a43;outline-offset:-2px}#petName,#fieldPanel,#weatherPanel,#parcelPanel,#evolutionPanel{scroll-margin-top:12px}footer{padding:0 12px 12px;font-size:8px;line-height:1.5}}</style></aside>
+</style>
 
 <body><main class="shell">
 <header><div class="brand"><b>✦</b> FIELD RECORD 01 <span> / THE CLEARING</span></div><div class="day" id="clock"></div></header>
@@ -237,6 +237,14 @@ body{background:#e6efdc;color:#21372c}.shell{background:#fbf7ed;border-color:#cf
  <div class="ground"></div><div class="grass"></div><div class="log"></div><div class="flowers">✿　✿　✿</div><div class="pond"></div>
  <div class="shrub shrub-a"></div><div class="shrub shrub-b"></div><div class="stone stone-a"></div><div class="stone stone-b"></div><div class="mushroom"><i></i><b></b></div><div class="mushroom tiny"><i></i><b></b></div>
  <i class="firefly firefly-a"></i><i class="firefly firefly-b"></i><i class="firefly firefly-c"></i><span class="world-hint" id="worldHint">Tap any tile to guide your companion · glowing spots hold discoveries</span>
+ <div class="mobile-hud" aria-label="Pichu's needs">
+  <div class="mobile-hud-mood" id="mobileMood">Composed</div>
+  <div class="mobile-hud-needs">
+    <div><span>&#x1F347; <b id="mobileHungerText">100%</b></span><i class="mini-meter"><i id="mobileHunger"></i></i></div>
+    <div><span>&#x1F49B; <b id="mobileMoraleText">100%</b></span><i class="mini-meter"><i id="mobileMorale"></i></i></div>
+    <div><span>&#x26A1; <b id="mobileChargeText">100%</b></span><i class="mini-meter"><i id="mobileCharge"></i></i></div>
+  </div>
+</div>
  <button class="discovery" data-site="shallows" style="left:74%;bottom:10%" type="button" aria-label="Explore the moonlit shallows"><i>◇</i><span>SHALLOWS</span></button>
  <button class="discovery" data-site="stump" style="left:21%;bottom:23%" type="button" aria-label="Explore the old stump"><i>◇</i><span>OLD STUMP</span></button>
  <button class="discovery" data-site="fern" style="left:66%;bottom:24%" type="button" aria-label="Explore the storm fern"><i>◇</i><span>STORM FERN</span></button>
@@ -250,10 +258,27 @@ body{background:#e6efdc;color:#21372c}.shell{background:#fbf7ed;border-color:#cf
  <button class="sleep-z" id="sleepZzz" type="button" aria-label="Pichu is asleep. Tap to wake him early.">Z z</button><div class="speech" id="speech">Pika! A parcel for the clearing!</div>
 </section>
 <section class="content">
+ <nav class="mobile-panel-toolbar" aria-label="Game menu">
+  <div class="mobile-panel-tabs">
+    <button type="button" data-panel="care" aria-pressed="true">&#x1F43E; Care</button>
+    <button type="button" data-panel="finds" aria-pressed="false">&#x2726; Finds</button>
+    <button type="button" data-panel="weather" aria-pressed="false">&#x2600; Sky</button>
+    <button type="button" data-panel="parcels" aria-pressed="false">&#x2709; Mail</button>
+    <button type="button" data-panel="growth" aria-pressed="false">&#x26A1; Growth</button>
+  </div>
+  <button class="mobile-close" type="button" aria-label="Close menu">&#x2715;</button>
+</nav>
  <div class="panel"><h2 id="petName">Pichu — Field Companion</h2><div class="temperament" id="temperament">Temperament · unformed</div><div class="statusline"><span id="petMood">Composed</span><span id="needHint">All readings stable.</span></div><div class="needs"><div class="need"><label>🍓 Hunger <b id="hungerText">100%</b></label><div class="needbar"><i id="hungerBar"></i></div></div><div class="need"><label>💛 Morale <b id="happyText">100%</b></label><div class="needbar"><i id="happyBar"></i></div></div><div class="need"><label>⚡ Charge <b id="energyText">100%</b></label><div class="needbar"><i id="energyBar"></i></div></div></div><div class="stats"><div class="stat">Stage<strong id="stage">Baby</strong></div><div class="stat">Level<strong id="level">1 / 3</strong></div><div class="stat">Bond<strong id="bond">0</strong></div><div class="stat">Parcels<strong id="parcelCount">0</strong></div></div><div class="rule" id="levelHint">Pichu levels up every 2 bond points.</div><div class="stat">Evolution potential<div class="meter"><i id="growth"></i></div></div><div class="actions"><button class="btn primary" id="berry">🍓 Feed berry</button><button class="btn" id="play">⚡ Play</button><button class="btn warn" id="rest">🌙 Rest</button></div><p class="note">Needs change gently while you’re away and save in this browser. A calm check-in every day is plenty.</p></div>
- <aside class="side"><div class="panel"><h2 id="fieldPanel">Field log <small id="fieldProgress">0 / 3 finds</small></h2><div class="field-log" id="fieldLog"></div><div class="rule" id="exploreHint">Choose a marked site. Each can be explored once a day.</div></div><div class="panel"><h2 id="weatherPanel">Weather in your clearing</h2><button class="btn primary" id="weatherBtn">📍 Use my current location</button><div class="rule" id="weatherStatus">Your browser will ask before sharing location. Coordinates are used to fetch local weather.</div></div><div class="panel"><h2 id="parcelPanel">Try the email rule</h2><div class="email-control"><label for="emails" class="note" style="margin:0">Unread</label><input id="emails" type="number" min="0" max="200" value="0"><button class="btn primary" id="update">Update</button></div><div class="rule">1 parcel for each 5 unread emails.<br>10 unread → 2 parcels</div></div><div class="panel"><h2 id="evolutionPanel">Evolution path</h2><div class="evolution" id="evolution">Pichu <b>→</b> Pikachu <b>→</b> Raichu<br><span id="nextHint">Build a bond of 6 to help Pichu evolve!</span></div><button class="btn" id="reset" style="margin-top:9px">Start fresh</button></div><nav class="mobile-nav" aria-label="Quick links"><a href="#petName">🐾 Care</a><a href="#fieldPanel">✦ Finds</a><a href="#weatherPanel">☀ Weather</a><a href="#parcelPanel">✉ Parcels</a><a href="#evolutionPanel">⚡ Growth</a></nav>
-<nav class="mobile-nav" aria-label="Quick links"><a href="#petName">🐾 Care</a><a href="#fieldPanel">✦ Finds</a><a href="#weatherPanel">☀ Weather</a><a href="#parcelPanel">✉ Parcels</a><a href="#evolutionPanel">⚡ Growth</a></nav><nav class="mobile-nav" aria-label="Quick links"><a href="#petName">🐾 Care</a><a href="#fieldPanel">✦ Finds</a><a href="#weatherPanel">☀ Weather</a><a href="#parcelPanel">✉ Parcels</a><a href="#evolutionPanel">⚡ Growth</a></nav></section><footer>LOCAL DEMO · WEATHER USES YOUR LOCATION ONLY AFTER PERMISSION (OPEN-METEO) · NO EMAIL OR CALENDAR CONNECTED</footer>
-</main><div class="toast" id="toast"></div>
+ <aside class="side"><div class="panel"><h2 id="fieldPanel">Field log <small id="fieldProgress">0 / 3 finds</small></h2><div class="field-log" id="fieldLog"></div><div class="rule" id="exploreHint">Choose a marked site. Each can be explored once a day.</div></div><div class="panel"><h2 id="weatherPanel">Weather in your clearing</h2><button class="btn primary" id="weatherBtn">📍 Use my current location</button><div class="rule" id="weatherStatus">Your browser will ask before sharing location. Coordinates are used to fetch local weather.</div></div><div class="panel"><h2 id="parcelPanel">Try the email rule</h2><div class="email-control"><label for="emails" class="note" style="margin:0">Unread</label><input id="emails" type="number" min="0" max="200" value="0"><button class="btn primary" id="update">Update</button></div><div class="rule">1 parcel for each 5 unread emails.<br>10 unread → 2 parcels</div></div><div class="panel"><h2 id="evolutionPanel">Evolution path</h2><div class="evolution" id="evolution">Pichu <b>→</b> Pikachu <b>→</b> Raichu<br><span id="nextHint">Build a bond of 6 to help Pichu evolve!</span></div><button class="btn" id="reset" style="margin-top:9px">Start fresh</button></div>
+</section><footer>LOCAL DEMO · WEATHER USES YOUR LOCATION ONLY AFTER PERMISSION (OPEN-METEO) · NO EMAIL OR CALENDAR CONNECTED</footer>
+</main>
+<nav class="mobile-dock" aria-label="Care controls">
+  <button type="button" data-care-action="berry"><span>&#x1F347;</span><b>Feed</b></button>
+  <button type="button" data-care-action="play"><span>&#x26A1;</span><b>Play</b></button>
+  <button type="button" data-care-action="rest"><span>&#x1F319;</span><b>Rest</b></button>
+  <button type="button" id="mobileMore" aria-expanded="false"><span>&#x1F4D6;</span><b>More</b></button>
+</nav>
+<div class="toast" id="toast"></div>
 <script>
 const $=id=>document.getElementById(id);const safeNumber=(key,fallback,min=0,max=1e6)=>{try{const n=Number(localStorage.getItem(key));return Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback}catch{return fallback}};let bond=Math.floor(safeNumber('sparkBond',0,0,38)),evo=Math.floor(safeNumber('sparkEvo',0,0,2)),parcelN=Math.floor(safeNumber('sparkParcels',0,0,40));let needs=(()=>{let n;try{n=JSON.parse(localStorage.getItem('sparkNeeds'))}catch{}if(!n||typeof n!=='object')n={};return{hunger:Number.isFinite(Number(n.hunger))?Math.max(0,Math.min(100,Number(n.hunger))):82,happy:Number.isFinite(Number(n.happy))?Math.max(0,Math.min(100,Number(n.happy))):90,energy:Number.isFinite(Number(n.energy))?Math.max(0,Math.min(100,Number(n.energy))):88,last:Number.isFinite(Number(n.last))?Number(n.last):Date.now()}})();
 const stages=['Pichu','Pikachu','Raichu'],levelCaps=[3,6,20];let locationTimeZone=(()=>{try{const zone=localStorage.getItem('sparkTimeZone');if(zone)new Intl.DateTimeFormat('en',{timeZone:zone});return zone||Intl.DateTimeFormat().resolvedOptions().timeZone}catch{return Intl.DateTimeFormat().resolvedOptions().timeZone}})();const careStyle=(()=>{let c;try{c=JSON.parse(localStorage.getItem('sparkCareStyle'))}catch{}if(!c||typeof c!=='object')c={};return{feed:Math.max(0,Number(c.feed)||0),play:Math.max(0,Number(c.play)||0),rest:Math.max(0,Number(c.rest)||0),explore:Math.max(0,Number(c.explore)||0)}})();const clamp=n=>Math.max(0,Math.min(100,n));function saveNeeds(){needs.last=Date.now();localStorage.sparkNeeds=JSON.stringify(needs)}function updateNeedsUI(){for(const [key,id] of [['hunger','hunger'],['happy','happy'],['energy','energy']]){$(key+'Text').textContent=Math.round(needs[key])+'%';$(key+'Bar').style.width=needs[key]+'%';$(key+'Bar').classList.toggle('low',needs[key]<30)}const low=Math.min(needs.hunger,needs.happy,needs.energy);$('petMood').textContent=low<20?'Needs care':low<45?'On alert':needs.energy<35?'Low charge':needs.happy<45?'Morale low':'Composed';$('needHint').textContent=needs.hunger<30?'Rations recommended.':needs.energy<30?'Charge is running low.':needs.happy<30?'Pichu needs some company.':low<50?'A short check-in would help.':'All readings stable.';$('petMood').classList.toggle('attention',low<30)}
@@ -347,4 +372,89 @@ function plantWildSpot(){
  },{once:false});
 }
 scheduleWildSpot();
-</script><style>.mobile-nav{display:none!important}@media(max-width:700px){body{display:block;padding:10px 10px 126px}.content{grid-template-columns:1fr;padding:10px}.actions{position:fixed;z-index:30;left:50%;bottom:47px;transform:translateX(-50%);width:calc(100% - 20px);display:grid;grid-template-columns:repeat(3,1fr);padding:7px;background:#fbf3dc;border:2px solid #8a6a43}.actions .btn{min-height:42px;padding:7px 3px;font-size:10px}.mobile-nav{position:fixed;z-index:29;bottom:0;left:0;width:100%;display:grid!important;grid-template-columns:repeat(5,1fr);padding:5px;background:#fff9ed;border-top:1px solid #d4c293}.mobile-nav~.mobile-nav{display:none!important}.mobile-nav a{min-height:35px;display:grid;place-items:center;font-size:8px;color:#31594b;text-decoration:none}}</style></body></html>
+</script>
+<style>
+.mobile-hud,.mobile-panel-toolbar,.mobile-dock{display:none}
+@media(max-width:700px){
+  :root{--dock-height:66px}
+  html,body{width:100%;min-width:0;min-height:100%;margin:0}
+  body{display:block;padding:0;background:#172d26;overflow-x:hidden}
+  .shell{display:flex;flex-direction:column;width:100%;height:calc(100dvh - var(--dock-height) - env(safe-area-inset-bottom));min-height:480px;border:0;border-radius:0;box-shadow:none;overflow:hidden}
+  header{flex:0 0 48px;min-height:48px;padding:7px 12px;gap:8px}
+  .brand{max-width:65%;font-size:9px;line-height:1.3;letter-spacing:.12em}
+  .day{font-size:9px;text-align:right}
+  .scene{flex:1 1 auto;width:100%;height:auto;min-height:0;max-height:none;border:0;box-shadow:none}
+  .title{top:9px;left:9px;max-width:58%;padding:6px 7px;font-size:8px;letter-spacing:.12em}
+  .weather{top:9px;right:9px;padding:6px 8px;font-size:9px}
+  .world-hint{bottom:8px;max-width:calc(100% - 16px);padding:5px 8px;font-size:8px;line-height:1.3;white-space:normal;text-align:center}
+  .mobile-hud{position:absolute;z-index:8;top:47px;left:9px;display:grid;grid-template-columns:1fr;gap:4px;width:105px;padding:6px 7px;border:1px solid #f1d58c66;border-radius:5px;background:#17251ddd;color:#f8edce;box-shadow:0 3px 10px #17251d66;pointer-events:none}
+  .mobile-hud-mood{font-size:8px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#ffe18a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mobile-hud-needs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+  .mobile-hud-needs>div{min-width:0;display:grid;gap:3px;font-size:7px;line-height:1}
+  .mobile-hud-needs b{font-size:7px;color:#fff8df}
+  .mini-meter{height:3px;overflow:hidden;border-radius:3px;background:#e8e0c6}
+  .mini-meter>i{display:block;width:100%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#67b89c,#f0cc67)}
+  .pet{bottom:12%}
+  .content{display:none!important}
+  .mobile-dock{position:fixed;z-index:60;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;height:calc(var(--dock-height) + env(safe-area-inset-bottom));padding:6px 9px calc(6px + env(safe-area-inset-bottom));background:#fbf3dc;border-top:3px solid #6b4f33;box-shadow:0 -5px 18px #21372c3d}
+  .mobile-dock button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;border:2px solid #dcc890;border-radius:6px;background:#f5edda;color:#31594b;font:800 10px system-ui;touch-action:manipulation}
+  .mobile-dock button:first-child{background:#27634f;border-color:#1d5445;color:#fff}
+  .mobile-dock button span{font-size:16px;line-height:1}
+  .mobile-dock button b{font-size:9px}
+  .mobile-dock button:active{transform:translateY(1px);filter:brightness(.95)}
+  body.mobile-tools-open:before{position:fixed;z-index:40;inset:0;content:"";background:#10211ba8}
+  body.mobile-tools-open .content{position:fixed;z-index:50;inset:8px 8px calc(var(--dock-height) + env(safe-area-inset-bottom) + 8px);display:block!important;overflow:auto;padding:10px;background:#f6f0df;border:3px solid #6b4f33;border-radius:8px;box-shadow:0 12px 35px #09150fb0}
+  .mobile-panel-toolbar{position:sticky;top:-10px;z-index:5;display:flex;align-items:stretch;gap:5px;margin:-10px -10px 10px;padding:7px;background:#fbf3dc;border-bottom:2px solid #d4c293}
+  .mobile-panel-tabs{display:flex;flex:1;min-width:0;gap:4px;overflow-x:auto;scrollbar-width:none}
+  .mobile-panel-tabs::-webkit-scrollbar{display:none}
+  .mobile-panel-tabs button,.mobile-close{flex:0 0 auto;min-height:34px;padding:5px 8px;border:1px solid #d4c293;border-radius:5px;background:#f5edda;color:#31594b;font:800 9px system-ui;white-space:nowrap}
+  .mobile-panel-tabs button[aria-pressed=true]{background:#27634f;color:white;border-color:#1d5445}
+  .mobile-close{width:34px;padding:0;background:#f4e2bc}
+  body[data-mobile-panel="care"] .content .panel:not([data-mobile-panel="care"]),
+  body[data-mobile-panel="finds"] .content .panel:not([data-mobile-panel="finds"]),
+  body[data-mobile-panel="weather"] .content .panel:not([data-mobile-panel="weather"]),
+  body[data-mobile-panel="parcels"] .content .panel:not([data-mobile-panel="parcels"]),
+  body[data-mobile-panel="growth"] .content .panel:not([data-mobile-panel="growth"]){display:none!important}
+  body.mobile-tools-open .content .actions{display:none}
+  .content .panel{min-width:0;padding:12px;border-radius:7px}
+  .content .side{display:contents}
+  .content .stats{gap:5px}
+  .content .stat{min-width:0;padding:7px 5px;font-size:9px;text-align:center}
+  .content .stat strong{font-size:14px;overflow-wrap:anywhere}
+  .content .needs{gap:5px}
+  .content .need{padding:7px 5px}
+  .content .need label{font-size:8px}
+  .content .need label b{font-size:9px}
+  .content .rule{font-size:10px}
+  footer{display:none}
+}
+@media(max-width:380px){
+  .mobile-hud{width:96px}
+  .mobile-panel-tabs button{padding-inline:6px;font-size:8px}
+  .mobile-dock{gap:4px;padding-inline:6px}
+}
+@media(max-height:620px) and (max-width:700px){
+  :root{--dock-height:60px}
+  .shell{min-height:0}
+  header{flex-basis:42px;min-height:42px}
+  .mobile-hud{top:40px}
+  .world-hint{display:none}
+}
+</style>
+<script>
+(()=>{
+ const body=document.body,content=document.querySelector('.content'),careCard=content.querySelector(':scope > .panel'),sideCards=[...content.querySelectorAll('.side > .panel')];
+ const cards=[careCard,...sideCards],keys=['care','finds','weather','parcels','growth'];
+ cards.forEach((card,index)=>{if(card)card.dataset.mobilePanel=keys[index]});
+ const more=document.getElementById('mobileMore'),close=document.querySelector('.mobile-close');
+ const choose=key=>{body.dataset.mobilePanel=key;document.querySelectorAll('.mobile-panel-tabs [data-panel]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.panel===key)))};
+ more.addEventListener('click',()=>{const open=!body.classList.contains('mobile-tools-open');body.classList.toggle('mobile-tools-open',open);more.setAttribute('aria-expanded',String(open));if(open)choose(body.dataset.mobilePanel||'care')});
+ close.addEventListener('click',()=>{body.classList.remove('mobile-tools-open');more.setAttribute('aria-expanded','false')});
+ document.querySelectorAll('.mobile-panel-tabs [data-panel]').forEach(button=>button.addEventListener('click',()=>choose(button.dataset.panel)));
+ document.querySelectorAll('.mobile-dock [data-care-action]').forEach(button=>button.addEventListener('click',()=>document.getElementById(button.dataset.careAction).click()));
+ const syncHud=()=>{for(const [source,textId,barId] of [['hunger','mobileHungerText','mobileHunger'],['happy','mobileMoraleText','mobileMorale'],['energy','mobileChargeText','mobileCharge']]){const value=Math.round(needs[source]);document.getElementById(textId).textContent=value+'%';document.getElementById(barId).style.width=value+'%'}document.getElementById('mobileMood').textContent=document.getElementById('petMood').textContent};
+ const prior=updateNeedsUI;updateNeedsUI=function(){prior();syncHud()};
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&body.classList.contains('mobile-tools-open')){body.classList.remove('mobile-tools-open');more.setAttribute('aria-expanded','false')}});
+ choose('care');syncHud();
+})();
+</script></body></html>
