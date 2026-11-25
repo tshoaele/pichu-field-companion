@@ -234,4 +234,31 @@ function wake(early=false){sleepUntil=0;localStorage.removeItem('sparkSleepUntil
 function sleepTick(){if(sleepUntil){const now=Date.now(),upto=Math.min(now,sleepUntil),dt=Math.max(0,upto-sleepLast)/1000;if(dt>0){needs.energy=clamp(needs.energy+dt*0.1);sleepLast=upto;localStorage.setItem('sparkSleepLast',String(upto));saveNeeds();updateUI()}if(now>=sleepUntil)wake()}else if(needs.energy<10)startSleep(true)}
 document.addEventListener('click',e=>{const t=e.target;if(asleep()&&t.closest('#pet')){e.stopImmediatePropagation();e.preventDefault();wake(true);return}if(t.closest('#rest')){e.stopImmediatePropagation();e.preventDefault();if(asleep()){message('Pichu is already asleep.');return}startSleep();return}if(asleep()&&t.closest('#berry,#play,.scene')&&!t.closest('.weather,.title')){e.stopImmediatePropagation();e.preventDefault();message('Shh, Pichu is asleep.');toast('Pichu is asleep · wakes in '+Math.ceil((sleepUntil-Date.now())/60000)+' min')}},true);
 if(asleep()){clearTimeout(wanderTimer);pet.style.left='47%';pet.style.bottom='77%';pet.classList.add('sleeping');pet.setAttribute('title','Tap Pichu to wake early')}setInterval(sleepTick,5000);sleepTick();
+
+// A small glowing route makes tile-by-tile movement easy to follow on desktop and touch screens.
+const routeTrail=document.createElement('div');routeTrail.id='routeTrail';routeTrail.setAttribute('aria-hidden','true');scene.prepend(routeTrail);
+const routeStyle=document.createElement('style');routeStyle.textContent=`
+#routeTrail{position:absolute;inset:0;z-index:3;overflow:hidden;pointer-events:none}
+.route-step{position:absolute;width:9px;height:9px;transform:translate(-50%,50%);border:1px solid #fff0bd;border-radius:50%;background:#f8dc83;box-shadow:0 0 7px 2px #f4d474aa;opacity:.62;transition:opacity .12s,scale .12s}
+.route-step.current{scale:1.55;opacity:1;background:#fff8d6;box-shadow:0 0 12px 4px #fff0aacc}
+.route-destination{position:absolute;width:25px;height:25px;transform:translate(-50%,50%);border:2px solid #fff0b5;border-radius:50%;background:#f5d87833;box-shadow:0 0 13px 5px #f1d47688;animation:route-ping .65s ease-in-out infinite alternate}
+.route-destination.arrived{animation:route-arrive .65s ease-out 2}
+@keyframes route-ping{to{scale:.72;opacity:.56}}
+@keyframes route-arrive{0%{scale:.55;opacity:.5}55%{scale:1.5;opacity:1}100%{scale:1;opacity:.8}}
+@media(prefers-reduced-motion:reduce){.route-destination{animation:none}}
+`;document.head.append(routeStyle);
+walkGridTo=function(x,bottom,onArrive){
+ const id=++routeId,fromX=parseFloat(pet.style.left)||50,fromB=parseFloat(pet.style.bottom)||12,width=scene.clientWidth,height=scene.clientHeight,tileX=32,tileY=32;
+ const stepsX=Math.max(0,Math.round(Math.abs(x-fromX)*width/100/tileX)),stepsY=Math.max(0,Math.round(Math.abs(bottom-fromB)*height/100/tileY)),points=[];let cx=fromX,cb=fromB;
+ for(let i=1;i<=stepsX;i++){cx=i===stepsX?x:fromX+(x-fromX)*i/stepsX;points.push({x:cx,b:cb})}
+ for(let i=1;i<=stepsY;i++){cb=i===stepsY?bottom:fromB+(bottom-fromB)*i/stepsY;points.push({x:cx,b:cb})}
+ if(!stepsX&&!stepsY)points.push({x,b:bottom});
+ clearTimeout(walkTimer);routeTrail.replaceChildren();
+ const markers=points.map(point=>{const mark=document.createElement('i');mark.className='route-step';mark.style.left=point.x+'%';mark.style.bottom=point.b+'%';routeTrail.append(mark);return mark});
+ const target=document.createElement('i');target.className='route-destination';target.style.left=x+'%';target.style.bottom=bottom+'%';routeTrail.append(target);
+ let index=0;const step=()=>{if(id!==routeId)return;if(index>0)markers[index-1]?.remove();const point=points[index];if(!point)return;movePetTo(point.x,point.b);markers[index].classList.add('current');index++;
+  if(index<points.length)walkTimer=setTimeout(step,145);else{target.classList.add('arrived');if(onArrive)onArrive();walkTimer=setTimeout(()=>{if(id===routeId){routeTrail.replaceChildren();pet.classList.remove('walk')}},850)}
+ };
+ step();return points.length*145;
+};
 </script></body></html>
